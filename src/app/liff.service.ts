@@ -10,19 +10,9 @@ export class LiffService {
 
   constructor() { }
 
-  private loadLIFFScript() {
-    return new Promise<void>((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src = 'https://static.line-scdn.net/liff/edge/2/sdk.js';
-      script.onload = () => resolve();
-      script.onerror = () => reject('Failed to load LIFF SDK');
-      document.head.appendChild(script);
-    });
-  }
 
   async initLIFF() {
     try {
-      await this.loadLIFFScript();
       await liff.init({ liffId: this.liffId });
       if (!liff.isLoggedIn()) {
         liff.login();
@@ -37,6 +27,8 @@ export class LiffService {
       console.error('LIFF API 初始化失敗:', error);
     }
   }
+
+
   setUserId(userId: string) {
     this.userId = userId;
   }
