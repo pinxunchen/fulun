@@ -8,7 +8,6 @@ import { LiffService } from './liff.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  displayName = '';
   userId = '';
 
   constructor(private liffService: LiffService) {}
@@ -18,9 +17,5 @@ export class AppComponent implements OnInit {
     this.liffService.initLIFF(liffId);
   }
 
-  printUserId() {
-    const userId = this.liffService.getUserId();
-    console.log('User ID:', userId);
-  }
 
 }

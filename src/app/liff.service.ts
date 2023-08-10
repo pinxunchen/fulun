@@ -18,6 +18,7 @@ export class LiffService {
         const profile = await liff.getProfile();
         if (profile) {
           this.setUserId(profile.userId); // 在初始化成功後設置 userId
+          console.log(this.userId)
         }
       }
       //console.log('LIFF API 初始化成功!');
