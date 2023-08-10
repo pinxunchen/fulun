@@ -16,6 +16,11 @@ export class LiffService {
       await liff.init({ liffId: this.liffId });
       if (!liff.isLoggedIn()) {
         liff.login();
+      } else {
+        const profile = await liff.getProfile();
+        if (profile) {
+          this.setUserId(profile.userId); // 在初始化成功後設置 userId
+        }
       }
       console.log('LIFF API 初始化成功!');
     } catch (error) {

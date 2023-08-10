@@ -2,8 +2,6 @@ import { Component , OnInit} from '@angular/core';
 import { LiffService } from './liff.service';
 
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,19 +9,17 @@ import { LiffService } from './liff.service';
 })
 export class AppComponent implements OnInit {
   displayName = '';
-  userId = '';
+  userId: string = '';
 
   constructor(private liffService: LiffService) {}
 
   ngOnInit() {
-    this.showDisplayName();
+    this.liffService.initLIFF();
   }
 
-  async showDisplayName() {
-    const userData = await this.liffService.getUserData();
-    if (userData && userData.displayName) {
-      this.displayName = userData.displayName;
-      console.log('User ID:', userData.userId);
-    }
+  printUserId() {
+    const userId = this.liffService.getUserId();
+    console.log('User ID:', userId);
   }
+
 }
