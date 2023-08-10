@@ -22,13 +22,11 @@ export class LiffService {
           this.setUserId(profile.userId); // 在初始化成功後設置 userId
         }
       }
-      console.log('LIFF API 初始化成功!');
+      //console.log('LIFF API 初始化成功!');
     } catch (error) {
-      console.error('LIFF API 初始化失敗:', error);
+      //console.error('LIFF API 初始化失敗:', error);
     }
   }
-
-
   setUserId(userId: string) {
     this.userId = userId;
   }
