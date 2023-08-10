@@ -9,12 +9,13 @@ import { LiffService } from './liff.service';
 })
 export class AppComponent implements OnInit {
   displayName = '';
-  userId: string = '';
+  userId = '';
 
   constructor(private liffService: LiffService) {}
 
   ngOnInit() {
-    this.liffService.initLIFF();
+    const liffId = '1660683719-4N2ppZbQ';
+    this.liffService.initLIFF(liffId);
   }
 
   printUserId() {

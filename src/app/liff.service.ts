@@ -5,18 +5,16 @@ declare var liff: any;
   providedIn: 'root'
 })
 export class LiffService {
-  private liffId: string = '1660683719-4N2ppZbQ';
   userId: string = '';
 
   constructor() { }
 
-
-  async initLIFF() {
+  async initLIFF(liffId: string) {
     try {
-      await liff.init({ liffId: this.liffId });
+      await liff.init({ liffId: liffId});
       if (!liff.isLoggedIn()) {
         liff.login();
-      } else {
+      }else {
         const profile = await liff.getProfile();
         if (profile) {
           this.setUserId(profile.userId); // 在初始化成功後設置 userId
@@ -24,7 +22,7 @@ export class LiffService {
       }
       //console.log('LIFF API 初始化成功!');
     } catch (error) {
-      //console.error('LIFF API 初始化失敗:', error);
+      console.error('LIFF API 初始化失敗:', error);
     }
   }
   setUserId(userId: string) {
