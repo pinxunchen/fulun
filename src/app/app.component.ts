@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
   }
 
   printUserId() {
-    const userId = this.liffService.getUserData();
     console.log('User ID:', this.userId);
     console.log('Display Name:', this.displayName);
   }
