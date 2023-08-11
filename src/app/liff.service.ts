@@ -6,32 +6,38 @@ declare var liff: any;
 })
 export class LiffService {
   userId: string = '';
+  displayName: string = '';
 
   constructor() { }
 
   async initLIFF(liffId: string) {
     try {
-      await liff.init({ liffId: liffId});
+      await liff.init({ liffId: liffId });
       if (!liff.isLoggedIn()) {
         liff.login();
-      }else {
+      } else {
         const profile = await liff.getProfile();
         if (profile) {
-          this.setUserId(profile.userId); // 在初始化成功後設置 userId
-          console.log(this.userId)
+          this.setUserData(profile.userId, profile.displayName); // 在初始化成功後設置 userId 和 displayName
+          //console.log('User ID:', this.userId);
+          //console.log('Display Name:', this.displayName);
         }
       }
-      //console.log('LIFF API 初始化成功!');
+      console.log('LIFF API 初始化成功!');
     } catch (error) {
       console.error('LIFF API 初始化失敗:', error);
     }
   }
-  setUserId(userId: string) {
+
+  setUserData(userId: string, displayName: string) {
     this.userId = userId;
-  }
-  getUserId() {
-    return this.userId;
+    this.displayName = displayName;
   }
 
-
+  getUserData() {
+    return {
+      userId: this.userId,
+      displayName: this.displayName
+    };
+  }
 }
