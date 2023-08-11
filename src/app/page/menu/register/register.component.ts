@@ -2,6 +2,7 @@ import { Component , OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { LiffService } from 'src/app/liff.service';
+declare var liff: any;
 
 
 
@@ -30,5 +31,9 @@ export class RegisterComponent  implements OnInit  {
   printUserId() {
     console.log('User ID:', this.userId);
     console.log('Display Name:', this.displayName);
+  }
+
+  closeLiffWindow() {
+    liff.closeWindow();
   }
 }
