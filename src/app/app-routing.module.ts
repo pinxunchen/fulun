@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { MenuComponent } from './page/menu/menu.component';
 import { RegisterComponent } from './page/menu/register/register.component';
+import { BookingComponent } from './page/menu/booking/booking.component';
 
 const routes: Routes = [
   {
@@ -10,13 +11,21 @@ const routes: Routes = [
     component: MenuComponent,
   },
   {
-    path:'register',
-    component: RegisterComponent
-  }
+    path: 'register',
+    component: RegisterComponent,
+  },
+  {
+    path: 'booking',
+    component: BookingComponent,
+  },
+  {
+    path: '',
+    component: MenuComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

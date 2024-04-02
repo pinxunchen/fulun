@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 declare var liff: any;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LiffService {
   userId: string = '';
   displayName: string = '';
 
-  constructor() { }
+  constructor() {}
 
   async initLIFF(liffId: string) {
     try {
@@ -21,6 +21,7 @@ export class LiffService {
           this.setUserData(profile.userId, profile.displayName); // 在初始化成功後設置 userId 和 displayName
           //console.log('User ID:', this.userId);
           //console.log('Display Name:', this.displayName);
+          //console.log(profile);
         }
       }
       console.log('LIFF API 初始化成功!');
@@ -37,7 +38,7 @@ export class LiffService {
   getUserData() {
     return {
       userId: this.userId,
-      displayName: this.displayName
+      displayName: this.displayName,
     };
   }
 }

@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.footer {
+  background-color: rgba(53, 53, 53, 0.993); /* 背景顏色設為黑色 */
+  color: white; /* 文字顏色設為白色 */
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.social-icons {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+a{
+  text-decoration: none;
+  padding-left: 10px;
+  color: white;
+}
+
+p{
+  font-size: 15px;
+}
+
+
+h6{
+  font-weight: bolder;
+}
