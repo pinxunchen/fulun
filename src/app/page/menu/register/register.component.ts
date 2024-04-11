@@ -25,6 +25,7 @@ export class RegisterComponent  implements OnInit  {
       const userData = this.liffService.getUserData();
       this.displayName = userData.displayName;
       this.userId = userData.userId;
+      this.router.navigateByUrl('/register');
     });
   }
 

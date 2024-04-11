@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
       const userData = this.liffService.getUserData();
       this.displayName = userData.displayName;
       this.userId = userData.userId;
-      //this.router.navigate(['/menu']);
+      this.router.navigateByUrl('/menu');
     });
   }
 
