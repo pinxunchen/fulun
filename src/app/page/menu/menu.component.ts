@@ -15,8 +15,8 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     //menu LIFF網址
-    //https://liff.line.me/1660683719-4N2ppZbQ
-    const liffId = '1660683719-4N2ppZbQ';
+    //https://liff.line.me/1660683719-ljBkk0dx
+    const liffId = '1660683719-ljBkk0dx';
     this.liffService.initLIFF(liffId).then(profile => {
       const userData = this.liffService.getUserData();
       this.displayName = userData.displayName;
