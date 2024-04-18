@@ -3,16 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { BookingComponent } from './booking/booking.component';
 
-
 const routes: Routes = [
   {
-    path:'menu/booking',
-    component: BookingComponent
-  }
+    path: 'menu/booking',
+    component: BookingComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class MenuRoutingModule { }
+export class MenuRoutingModule {}

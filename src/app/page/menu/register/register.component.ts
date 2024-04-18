@@ -1,27 +1,25 @@
-import { Component , OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { LiffService } from 'src/app/liff.service';
 declare var liff: any;
 
-
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent  implements OnInit  {
+export class RegisterComponent implements OnInit {
   userId = '';
   displayName = '';
 
-  constructor(private router: Router,private liffService: LiffService) {}
+  constructor(private router: Router, private liffService: LiffService) {}
 
   ngOnInit() {
-    //會員綁定LIFF 網址
-    //https://liff.line.me/1660683719-ljBkk0dx
+    // register LIFF 網址
+    //https://liff.line.me/1660683719-4N2ppZbQ
     const liffId = '1660683719-4N2ppZbQ';
-    this.liffService.initLIFF(liffId).then(profile => {
+    this.liffService.initLIFF(liffId).then((profile) => {
       const userData = this.liffService.getUserData();
       this.displayName = userData.displayName;
       this.userId = userData.userId;

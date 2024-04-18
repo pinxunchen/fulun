@@ -11,9 +11,14 @@ const routes: Routes = [
     component: MenuComponent,
   },
   {
+    path: 'menu/:userId',
+    component: MenuComponent,
+  },
+  {
     path: 'register',
     component: RegisterComponent,
   },
+  { path: 'register/:userId', component: RegisterComponent },
   {
     path: 'booking',
     component: BookingComponent,
