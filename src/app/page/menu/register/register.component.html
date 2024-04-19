@@ -1,3 +1,100 @@
-<p>RegisterComponent</p>
-<button (click)="printUserId()">123</button>
-<button (click)="closeLiffWindow()">關閉</button>
+<div class="container">
+  <div class="title">
+    <h2>長照資料與Line綁定</h2>
+    <p>請填寫「長照個案」的資料，方便後續訂車及訂車結果通知</p>
+  </div>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="userId" />
+    <input type="hidden" formControlName="displayName" />
+
+    <div class="form-group">
+      <label for="name">姓名： </label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        [(ngModel)]="name"
+        formControlName="name"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          registerForm.controls['name'].errors &&
+          registerForm.controls['name'].touched &&
+          registerForm.controls['name'].invalid
+        "
+      >
+        <div *ngIf="registerForm.controls['name'].errors['required']">
+          *長照個案姓名為必填欄位
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="id">身分證字號： </label>
+      <input
+        type="text"
+        class="form-control"
+        id="id"
+        [(ngModel)]="id"
+        formControlName="id"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          registerForm.controls['id'].errors &&
+          registerForm.controls['id'].touched &&
+          registerForm.controls['id'].invalid
+        "
+      >
+        <div *ngIf="registerForm.controls['id'].errors['required']">
+          *身分證字號為必填欄位
+        </div>
+        <div *ngIf="registerForm.controls['id'].errors['minlength']">
+          *請輸入正確身分證共十碼
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone1">聯絡電話： </label>
+      <input
+        type="text"
+        class="form-control"
+        id="phone1"
+        [(ngModel)]="phone1"
+        formControlName="phone1"
+        placeholder="請輸入市話或是行動電話共十碼"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          registerForm.controls['phone1'].errors &&
+          registerForm.controls['phone1'].touched &&
+          registerForm.controls['phone1'].invalid
+        "
+      >
+        <div *ngIf="registerForm.controls['phone1'].errors['required']">
+          *電話為必填欄位
+        </div>
+        <div *ngIf="registerForm.controls['phone1'].errors['minlength']">
+          *請輸入8~10碼
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone2">其他聯絡電話： </label>
+      <input
+        type="text"
+        class="form-control"
+        id="phone2"
+        [(ngModel)]="phone2"
+        formControlName="phone2"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-dark">提交</button>
+  </form>
+</div>
