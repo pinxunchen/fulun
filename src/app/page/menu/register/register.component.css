@@ -1,0 +1,57 @@
+.input-row {
+  display: flex;
+  align-items: center;
+
+}
+
+.relation-input {
+  flex: 0.5;
+  margin-right: 5px;
+}
+
+.phone-input {
+  flex: 2.5;
+}
+
+.address1{
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.container{
+  margin-top: 10px;
+}
+
+.form-group{
+  margin-top: 15px;
+}
+
+label{
+  font-size: 16px;
+  margin-bottom: 3px;
+  text-align: center;
+}
+
+select{
+  margin-right: 3px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 40px;
+}
+
+.btn{
+  width: 50%;
+  height: 50px;
+  font-size: 18px;
+}
+
+
+.title{
+  border-bottom: 1px solid #292929d7;
+}
+
