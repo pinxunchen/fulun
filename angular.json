@@ -26,9 +26,7 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css",
-              "src/assets/fonts/font1.css",
-              "src/assets/fonts/font2.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
