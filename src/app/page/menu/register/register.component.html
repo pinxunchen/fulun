@@ -1,12 +1,17 @@
 <div class="container">
   <div class="title">
     <h2>長照資料與Line綁定</h2>
-    <p>請填寫<span style="color: red">「長照個案」</span>的基本資料，綁定完成可以加速往後訂車流程，我們也將透過Line通知您訂車資訊，<span style="color: red"> * </span>為必填的欄位！</p>
+    <p>
+      請填寫<span style="color: red">「長照個案」</span
+      >的基本資料，綁定完成可以加速往後訂車流程，我們也將透過Line通知您訂車資訊，<span
+        style="color: red"
+      >
+        * </span
+      >為必填的欄位！
+    </p>
   </div>
 
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-
-
     <div class="form-group">
       <label for="name"><span style="color: red">* </span>個案姓名： </label>
       <input
@@ -31,7 +36,9 @@
     </div>
 
     <div class="form-group">
-      <label for="id"><span style="color: red">* </span>個案身分證字號： </label>
+      <label for="id"
+        ><span style="color: red">* </span>個案身分證字號：
+      </label>
       <input
         type="text"
         class="form-control"
@@ -56,49 +63,67 @@
       </div>
     </div>
 
-
-
     <div class="form-group">
       <label for="address"><span style="color: red">* </span>住家地址： </label>
       <div class="address">
         <div class="address1">
-          <select class="form-control narrow" id="city" formControlName="city" (change)="onCityChange()">
+          <select
+            class="form-control narrow"
+            id="city"
+            formControlName="city"
+            (change)="onCityChange()"
+          >
             <option value="">縣市</option>
-            <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+            <option *ngFor="let city of cities" [value]="city">
+              {{ city }}
+            </option>
           </select>
-          <select class="form-control narrow" id="district" formControlName="district">
+          <select
+            class="form-control narrow"
+            id="district"
+            formControlName="district"
+          >
             <option value="">區</option>
-            <option *ngFor="let district of districts[registerForm.get('city')?.value || '']" [value]="district">{{ district }}</option>
+            <option
+              *ngFor="
+                let district of districts[registerForm.get('city')?.value || '']
+              "
+              [value]="district"
+            >
+              {{ district }}
+            </option>
           </select>
         </div>
         <div class="address2">
           <input
-          type="text"
-          class="form-control"
-          id="address"
-          [(ngModel)]="address"
-          formControlName="address"
-          placeholder="請輸入巷弄街道"/>
+            type="text"
+            class="form-control"
+            id="address"
+            [(ngModel)]="address"
+            formControlName="address"
+            placeholder="請輸入巷弄街道"
+          />
         </div>
 
         <div
-        class="text-danger"
-        *ngIf="
-          registerForm.controls['address'].errors &&
-          registerForm.controls['address'].touched &&
-          registerForm.controls['address'].invalid
-        "
-      >
-        <div *ngIf="registerForm.controls['address'].errors['required']">
-          地址為必填欄位
+          class="text-danger"
+          *ngIf="
+            registerForm.controls['address'].errors &&
+            registerForm.controls['address'].touched &&
+            registerForm.controls['address'].invalid
+          "
+        >
+          <div *ngIf="registerForm.controls['address'].errors['required']">
+            *地址為必填欄位
+          </div>
         </div>
-      </div>
       </div>
     </div>
 
-
     <div class="form-group">
-      <label for="phone1"><span style="color: red">* </span>主要聯絡電話：</label>
+      <label for="phone1"
+        ><span style="color: red">* </span>主要聯絡電話：</label
+      >
       <div class="input-row">
         <input
           type="text"
@@ -123,7 +148,8 @@
           registerForm.controls['phone1'].errors &&
           registerForm.controls['phone1'].touched &&
           registerForm.controls['phone1'].invalid
-        ">
+        "
+      >
         <div *ngIf="registerForm.controls['phone1'].errors['required']">
           *電話為必填欄位
         </div>
@@ -132,7 +158,6 @@
         </div>
       </div>
     </div>
-
 
     <div class="form-group">
       <label for="phone2">其他聯絡電話：</label>
@@ -155,9 +180,32 @@
       </div>
     </div>
 
+    <div class="form-group" id="wheelchair">
+      <label>個案有無輪椅：</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          id="wheelchairYes"
+          value="有輪椅"
+          formControlName="wheelchair"
+        />
+        <label class="form-check-label" for="wheelchairYes">是</label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          id="wheelchairNo"
+          value="無輪椅"
+          formControlName="wheelchair"
+        />
+        <label class="form-check-label" for="wheelchairNo">否</label>
+      </div>
+    </div>
+
     <div class="button-container">
       <button type="submit" class="btn btn-dark">進行綁定</button>
     </div>
-
   </form>
 </div>
